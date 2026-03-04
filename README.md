@@ -6,7 +6,7 @@
 
 [![Version](https://img.shields.io/badge/version-1.0.0-00ffe5?style=flat-square)](https://github.com/reaprrr/PyRokuMe/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-6c2bd9?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/platform-Windows-6868a0?style=flat-square&logo=windows)](https://github.com/reaprrr/PyRokuMe)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-6868a0?style=flat-square&logo=windows)](https://github.com/reaprrr/PyRokuMe)
 [![License](https://img.shields.io/badge/license-MIT-39ff7f?style=flat-square)](LICENSE)
 
 <br/>
@@ -43,11 +43,13 @@ PyRokuMe is a single-file Python remote control for Roku devices. It auto-discov
 
 ## Requirements
 
-- Windows 10 or 11
+- Windows 10/11 or Linux
 - Python 3.8+
 - `requests` (auto-installed on first launch if missing)
 
 All other dependencies (`tkinter`, `socket`, `threading`, `ctypes`, etc.) are part of the Python standard library.
+
+> **Note for Linux users:** `tkinter` is not always bundled with Python on Linux. Install it with `sudo apt install python3-tk` (Debian/Ubuntu) or the equivalent for your distro.
 
 ---
 
