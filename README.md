@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="preview.svg" alt="PyRokuMe app preview" width="200"/>
-
 # PyRokuMe
 
 **A compact, keyboard-driven Roku remote for Windows — no browser, no Electron, just Python.**
@@ -10,6 +8,10 @@
 [![Python](https://img.shields.io/badge/python-3.8%2B-6c2bd9?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows-6868a0?style=flat-square&logo=windows)](https://github.com/reaprrr/PyRokuMe)
 [![License](https://img.shields.io/badge/license-MIT-39ff7f?style=flat-square)](LICENSE)
+
+<br/>
+
+<img src="preview.svg" alt="PyRokuMe app preview" width="220"/>
 
 </div>
 
