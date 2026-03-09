@@ -1198,8 +1198,8 @@ class RokuRemote(tk.Tk):
         self._disc_btn.bind("<Leave>",    lambda e: self._disc_btn.config(fg=ACCENT))
         # Saved devices quick-switch button
         self._sw_btn = tk.Label(info_row, text="▾", bg=BORDER,
-                                fg=SUBTEXT, font=(_FONT, _FS, "bold"),
-                                cursor="hand2", padx=6, pady=2)
+                                fg=SUBTEXT, font=(_FONT, _FS - 2, "bold"),
+                                cursor="hand2", padx=4, pady=2)
         self._sw_btn.pack(side="right", padx=(0, 2))
         self._sw_btn.bind("<Button-1>", lambda e: self._open_device_switcher())
         self._sw_btn.bind("<Enter>",    lambda e: self._sw_btn.config(fg=ACCENT))
@@ -1486,7 +1486,7 @@ class RokuRemote(tk.Tk):
         self._ip = device["ip"]
         self._device_name = device["name"]
         self._device_lbl.config(
-            text=f"📺  {device['name']}  [{device['ip']}]", fg=GREEN)
+            text=f"📺  {device['name']}", fg=GREEN)
         self._was_online = True
         # Add/update in saved devices list (max 10, most-recent first)
         entry = {"name": device["name"], "ip": device["ip"]}
@@ -1521,14 +1521,14 @@ class RokuRemote(tk.Tk):
                 # Came back online
                 self._was_online = True
                 self._device_lbl.config(
-                    text=f"📺  {self._device_name}  [{self._ip}]", fg=GREEN)
+                    text=f"📺  {self._device_name}", fg=GREEN)
                 self._set_status(f"Reconnected to {self._device_name}", GREEN)
         else:
             if self._was_online:
                 # Just went offline
                 self._was_online = False
                 self._device_lbl.config(
-                    text=f"📺  {self._device_name}  [{self._ip}]  ⚠ offline", fg=YELLOW)
+                    text=f"📺  {self._device_name}  ⚠ offline", fg=YELLOW)
                 self._set_status(f"Lost connection to {self._device_name}", YELLOW)
         # Schedule next check (5s if offline, 12s if online)
         interval = 5000 if not self._was_online else 12000
@@ -1706,10 +1706,10 @@ class RokuRemote(tk.Tk):
         scan_lbl.bind("<Leave>",    lambda e: scan_lbl.config(fg=SUBTEXT))
 
         dlg.update_idletasks()
-        # Position below the ▾ button
-        bx = self._sw_btn.winfo_rootx()
-        by = self._sw_btn.winfo_rooty() + self._sw_btn.winfo_height() + 2
-        dlg.geometry(f"+{bx}+{by}"); dlg.deiconify()
+        # Centre over the main window
+        cx = self.winfo_rootx() + self.winfo_width()  // 2 - dlg.winfo_reqwidth()  // 2
+        cy = self.winfo_rooty() + self.winfo_height() // 2 - dlg.winfo_reqheight() // 2
+        dlg.geometry(f"+{cx}+{cy}"); dlg.deiconify()
 
     # ── Wake on LAN ───────────────────────────────────────────────────────────
 
